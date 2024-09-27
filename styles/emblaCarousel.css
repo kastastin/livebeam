@@ -1,0 +1,29 @@
+.embla {
+  /* max-width: 280px; */
+  margin: auto;
+  --slide-height: 280px;
+  --slide-spacing: 40px;
+  --slide-size: 320px;
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+}
+
+.embla__slide:not(.is-snapped) {
+  opacity: 0;
+  transition: all 0.3s;
+}
