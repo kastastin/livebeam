@@ -21,7 +21,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        trebuchet: ['Trebuchet MS"', "sans-serif"],
+        trebuchet: ["var(--font-trebuchet)"],
       },
       colors: {
         bg: "#F6F7FA",
