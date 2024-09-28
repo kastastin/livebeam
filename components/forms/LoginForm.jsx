@@ -23,7 +23,7 @@ import FormToggler from "@/components/forms/FormToggler";
 
 const LoginForm = () => {
   const { formType, setFormType } = useFormContext();
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

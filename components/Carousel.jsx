@@ -11,7 +11,9 @@ const Carousel = ({ containerStyles, delay, children }) => {
   ]);
 
   return (
-    <div className={`embla -mx-6 xs:mx-[-96px] md:mx-[-128px] xl:mx-0 ${containerStyles}`}>
+    <div
+      className={`embla -mx-6 xs:mx-[-96px] md:mx-[-128px] xl:mx-0 ${containerStyles}`}
+    >
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">{children}</div>
       </div>

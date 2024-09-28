@@ -10,7 +10,7 @@ const Home = () => (
     <About />
     <WhyJoinUs />
     <FindHere />
-    <CTA/>
+    <CTA />
   </>
 );
 

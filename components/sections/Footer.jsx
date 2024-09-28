@@ -20,7 +20,9 @@ const Footer = () => {
 
             <div className="flex flex-col gap-y-[8px] md:gap-y-[15px]">
               <span className="cursor-pointer md:text-xl">Terms of Use</span>
-              <span className="cursor-pointer md:text-xl">Diclosures&Disclaimers</span>
+              <span className="cursor-pointer md:text-xl">
+                Diclosures&Disclaimers
+              </span>
             </div>
           </li>
 
