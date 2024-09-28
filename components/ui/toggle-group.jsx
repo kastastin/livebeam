@@ -14,7 +14,7 @@ const ToggleGroup = React.forwardRef(
   ({ className, variant, size, children, ...props }, ref) => (
     <ToggleGroupPrimitive.Root
       ref={ref}
-      className={cn("flex items-center gap-[2px] !rounded-[6px] !overflow-hidden", className)}
+      className={cn("flex items-center gap-[2px] md:gap-[5px] !rounded-[6px] !overflow-hidden", className)}
       {...props}
     >
       <ToggleGroupContext.Provider value={{ variant, size }}>
@@ -34,7 +34,7 @@ const ToggleGroupItem = React.forwardRef(
       <ToggleGroupPrimitive.Item
         ref={ref}
         className={cn(
-          "!bg-[#F5F7F9] text-[#8789A1] text-sm py-[10px] !rounded-none cursor-pointer flex-1",
+          "!bg-[#F5F7F9] text-[#8789A1] text-sm sm:text-base py-[10px] !rounded-none cursor-pointer flex-1 md:text-xl",
           toggleVariants({
             variant: context.variant || variant,
             size: context.size || size,

@@ -1,4 +1,5 @@
 import Footer from "@/components/sections/Footer";
+import { FormProvider } from "@/contexts/FormContext";
 
 import "./globals.css";
 
@@ -13,10 +14,12 @@ export const metadata = {
 const RootLayout = ({ children }) => (
   <html lang="en">
     <body className="bg-bg font-trebuchet text-black">
-      <>
-        {children}
-        <Footer />
-      </>
+      <FormProvider>
+        <main>
+          {children}
+          <Footer />
+        </main>
+      </FormProvider>
     </body>
   </html>
 );

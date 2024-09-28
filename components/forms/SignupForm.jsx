@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -23,17 +24,19 @@ import {
 
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { signUpSchema } from "@/lib/validations";
+import { useFormContext } from "@/contexts/FormContext";
+import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Checkbox } from "@/components/ui/checkbox";
 import LoginForm from "@/components/forms/LoginForm";
+import FormToggler from "@/components/forms/FormToggler";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const SignupForm = () => {
-  const [name, setName] = useState("");
+  const { formType, setFormType } = useFormContext();
 
-  const [isFirstStageActive, setIsFirstStageActive] = useState(true);
+  const [name, setName] = useState("");
 
   const form = useForm({
     resolver: zodResolver(signUpSchema),
@@ -47,11 +50,22 @@ const SignupForm = () => {
 
   return (
     <>
-      {isFirstStageActive ? (
+      {formType === "signup" ? (
         <ShadcnForm {...form}>
+          {/* Logo > 1280 */}
+          <div className="mb-[25px] flex items-center justify-center gap-x-[6px] max-xl:hidden">
+            <Image
+              src="/assets/logo.svg"
+              alt="Livebeam logo"
+              width={31}
+              height={27}
+            />
+            <span className="text-2xl font-bold">livebeam</span>
+          </div>
+
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-[22px]"
+            className="space-y-[22px] xs:space-y-[30px]"
           >
             {/* Gender */}
             <FormField
@@ -110,7 +124,7 @@ const SignupForm = () => {
                         <Button
                           variant={"outline"}
                           className={cn(
-                            "w-full pl-[12px] text-left font-normal",
+                            "w-full sm:!h-[45px] !rounded-[6px] pl-[12px] text-left xs:text-base font-normal sm:!text-lg",
                             !field.value &&
                               "text-[#8789A1] bg-[#F5F7F9] border-none"
                           )}
@@ -118,7 +132,9 @@ const SignupForm = () => {
                           {field.value ? (
                             format(field.value, "PPP")
                           ) : (
-                            <span>Pick a date</span>
+                            <span className="xs:text-base md:text-xl">
+                              Pick a date
+                            </span>
                           )}
                           <CalendarIcon className="ml-auto size-4 opacity-50" />
                         </Button>
@@ -152,7 +168,7 @@ const SignupForm = () => {
                       checked={field.value}
                       onCheckedChange={field.onChange}
                     />
-                    <span className="text-xs text-[#8789A1]">
+                    <span className="text-xs text-[#8789A1] sm:text-sm">
                       I have read, understand and agree to Terms of Use, Privacy
                       Policy, Disclosures & Disclaimers.
                     </span>
@@ -167,16 +183,11 @@ const SignupForm = () => {
             </Button>
           </form>
 
-          <div className="flex justify-center gap-x-[6px]">
-            <div
-              className="mt-[40px] h-[3px] w-[18px] cursor-pointer rounded-full bg-[#5893FA]"
-              onClick={() => setIsFirstStageActive(true)}
-            />
-            <div
-              className="mt-[40px] h-[3px] w-[18px] cursor-pointer rounded-full bg-[#5893FA] opacity-20"
-              onClick={() => setIsFirstStageActive(false)}
-            />
-          </div>
+          <FormToggler
+            type={formType}
+            onClickLogin={() => setFormType("login")}
+            onClickSignup={() => setFormType("signup")}
+          />
         </ShadcnForm>
       ) : (
         <LoginForm />

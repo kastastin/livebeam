@@ -1,7 +1,15 @@
-const TitleWrapper = ({ title, description, titleStyles }) => (
-  <div className="mx-auto w-[250px] space-y-5">
-    <h2 className={`title mt-[55px] ${titleStyles}`}>{title}</h2>
-    <p>{description}</p>
+const TitleWrapper = ({
+  title,
+  description,
+  containerStyles,
+  titleStyles,
+  descriptionStyles,
+}) => (
+  <div
+    className={`mx-auto w-[250px]  space-y-5 xs:!w-[60vw] md:!w-[70vw] md:space-y-10 lg:!w-[60vw] lg:space-y-5 ${containerStyles}`}
+  >
+    <h2 className={`title mt-[55px] md:mt-[75px] ${titleStyles}`}>{title}</h2>
+    <p className={descriptionStyles}>{description}</p>
   </div>
 );
 

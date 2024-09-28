@@ -13,14 +13,21 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-
-  .title {
-    @apply font-titillium text-2xl font-bold;
-  }
 }
 
-@layer base {
-  :root {
-    --radius: 0.5rem;
-  }
+.title {
+  @apply text-2xl font-bold xs:text-3xl sm:text-4xl md:text-5xl lg:leading-tight;
+}
+
+h4 {
+  @apply mb-[12px] font-bold xs:text-lg md:text-2xl;
+}
+
+p,
+span {
+  @apply xs:text-lg sm:text-xl xl:text-2xl;
+}
+
+footer ul li {
+  @apply xs:flex xs:flex-col xs:w-1/2 lg:w-max lg:flex-1 xl:flex-none xl:w-auto;
 }

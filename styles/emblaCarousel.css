@@ -1,9 +1,9 @@
 .embla {
   /* max-width: 280px; */
   margin: auto;
-  --slide-height: 280px;
-  --slide-spacing: 40px;
-  --slide-size: 320px;
+  --slide-height: 100%;
+  --slide-spacing: 40px; /* bo: container px-20px */
+  --slide-size: 100vw;
 }
 
 .embla__viewport {
@@ -26,4 +26,44 @@
 .embla__slide:not(.is-snapped) {
   opacity: 0;
   transition: all 0.3s;
+}
+
+/* Adaptive */
+@media (min-width: 425px) {
+  .embla {
+    --slide-spacing: 96px; /* bo: container px-48px */
+    --slide-size: 70vh;
+  }
+
+  .embla__slide:not(.is-snapped) {
+    filter: blur(3px);
+    opacity: 0.8;
+    transition: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .embla {
+    --slide-spacing: 100px;
+    --slide-size: 50vw;
+  }
+
+  .embla__slide:not(.is-snapped) {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .embla {
+    --slide-spacing: 40px;
+    --slide-size: 500px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .embla {
+    --slide-spacing: 50px;
+    --slide-size: 700px;
+  }
 }
