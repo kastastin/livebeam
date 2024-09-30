@@ -8,12 +8,12 @@ import "./globals.css";
 const trebuchet = localFont({
   src: [
     {
-      path: "./fonts/Trebuchet-Regular.woff2",
+      path: "./fonts/TrebuchetMS.woff",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/Trebuchet-Bold.woff2",
+      path: "./fonts/TrebuchetMS-Bold.woff",
       weight: "700",
       style: "normal",
     },
